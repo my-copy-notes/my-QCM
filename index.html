@@ -113,8 +113,8 @@
       </div>
 
       <p class="help">
-        メモ本文はGitHubではなく、このブラウザ内のIndexedDBに保存されます。
-        SafariのWebサイトデータ削除や機種変更に備えて、定期的にバックアップしてください。
+        メモ本文はGitHubには保存されません。端末内のIndexedDBを本保存にし、同じSafari内の別領域にも自動で控えを残します。
+        SafariのWebサイトデータ削除や機種変更に備えて、定期的にバックアップも書き出してください。
       </p>
     </form>
   </dialog>
@@ -122,5 +122,6 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="./app.js" defer></script>
+  <script src="./safety.js" defer></script>
 </body>
 </html>
