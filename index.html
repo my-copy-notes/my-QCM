@@ -108,13 +108,18 @@
       <div class="settings-stack">
         <button id="addTabBtn" class="secondary-btn full" type="button">＋ 分類タブを追加</button>
         <button id="renameTabBtn" class="secondary-btn full" type="button">選択中のタブ名を変更</button>
+        <div class="two-col">
+          <button id="moveTabLeftBtn" class="secondary-btn" type="button">← タブを左へ</button>
+          <button id="moveTabRightBtn" class="secondary-btn" type="button">タブを右へ →</button>
+        </div>
         <button id="backupBtn" class="secondary-btn full" type="button">バックアップを書き出す</button>
         <button id="restoreBtn" class="secondary-btn full" type="button">バックアップから復元</button>
         <input id="restoreInput" type="file" accept="application/json,.json" hidden>
       </div>
 
       <p class="help">
-        「すべて」と「よく使う」は固定タブです。それ以外の分類タブは名前を変更できます。
+        「すべて」と「よく使う」は固定タブです。それ以外の分類タブは名前変更・左右の並べ替えができます。
+        フォルダ名は各フォルダ右側の「✎」から変更できます。
         メモ本文はGitHubには保存されません。端末内のIndexedDBを本保存にし、同じ利用環境内の別領域にも自動で控えを残します。
         Webサイトデータ削除や機種変更に備えて、定期的にバックアップも書き出してください。
       </p>
