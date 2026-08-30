@@ -1,5 +1,5 @@
-const CACHE = "my-qcm-v2";
-const ASSETS = ["./", "./index.html", "./styles.css", "./app.js", "./safety.js", "./manifest.webmanifest", "./icon.svg"];
+const CACHE = "my-qcm-v3";
+const ASSETS = ["./", "./index.html", "./styles.css", "./app.js", "./safety.js", "./tab-tools.js", "./manifest.webmanifest", "./icon.svg"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
