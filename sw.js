@@ -1,4 +1,4 @@
-const CACHE = "my-qcm-v3";
+const CACHE = "my-qcm-v4";
 const ASSETS = ["./", "./index.html", "./styles.css", "./app.js", "./safety.js", "./tab-tools.js", "./manifest.webmanifest", "./icon.svg"];
 
 self.addEventListener("install", event => {
