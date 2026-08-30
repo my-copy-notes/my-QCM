@@ -36,6 +36,7 @@
       <div id="breadcrumbs" class="breadcrumbs" aria-label="現在の場所"></div>
       <div class="location-actions">
         <button id="addFolderBtn" class="secondary-btn" type="button">＋ フォルダ</button>
+        <button id="bulkImportBtn" class="secondary-btn" type="button">＋ 一括</button>
         <button id="addNoteBtn" class="primary-btn" type="button">＋ メモ</button>
       </div>
     </section>
@@ -98,6 +99,40 @@
     </form>
   </dialog>
 
+  <dialog id="bulkDialog" class="dialog">
+    <form id="bulkForm" method="dialog">
+      <div class="dialog-header">
+        <h2>メモを一括登録</h2>
+        <button id="closeBulkDialogBtn" class="icon-btn" type="button" aria-label="閉じる">×</button>
+      </div>
+
+      <p class="bulk-target-line">登録先：<strong id="bulkTarget"></strong></p>
+
+      <label>
+        一括登録する文章
+        <textarea id="bulkText" rows="14" placeholder="例：
+◆ Vタワー｜共用エリア
+【Vタワー・エントランス】
+【Vタワー・ロビー】
+
+◆ Vox／VoxTek関連
+【Vタワー・CEOオフィス】"></textarea>
+      </label>
+
+      <div class="bulk-guide">
+        <p><strong>◆ 見出し</strong> → 子フォルダを作成</p>
+        <p><strong>それ以外の1行</strong> → 1メモとして登録</p>
+        <p>◆が1つもない場合は、今いる場所へ1行ずつ直接登録します。</p>
+        <p>同じ場所に同じ本文がある場合は重複を自動でスキップします。</p>
+      </div>
+
+      <div class="dialog-actions">
+        <button id="cancelBulkBtn" class="secondary-btn" type="button">キャンセル</button>
+        <button class="primary-btn" type="submit">一括登録</button>
+      </div>
+    </form>
+  </dialog>
+
   <dialog id="settingsDialog" class="dialog">
     <form method="dialog">
       <div class="dialog-header">
@@ -131,5 +166,6 @@
   <script src="./app.js" defer></script>
   <script src="./safety.js" defer></script>
   <script src="./tab-tools.js" defer></script>
+  <script src="./bulk-import.js" defer></script>
 </body>
 </html>
