@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f7fb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="My QCM">
+  <title>My QCM</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">文章ストック＆即コピー</p>
+      <h1>My QCM</h1>
+    </div>
+    <button id="settingsBtn" class="icon-btn" type="button" aria-label="設定">⚙︎</button>
+  </header>
+
+  <main class="app-main">
+    <section class="search-row" aria-label="検索と並べ替え">
+      <input id="searchInput" type="search" placeholder="タイトル・本文を検索" autocomplete="off">
+      <select id="sortSelect" aria-label="並べ替え">
+        <option value="updated-desc">更新順</option>
+        <option value="title-asc">タイトル順</option>
+      </select>
+    </section>
+
+    <nav id="tabs" class="tabs" aria-label="分類タブ"></nav>
+
+    <section class="location-bar">
+      <div id="breadcrumbs" class="breadcrumbs" aria-label="現在の場所"></div>
+      <div class="location-actions">
+        <button id="addFolderBtn" class="secondary-btn" type="button">＋ フォルダ</button>
+        <button id="addNoteBtn" class="primary-btn" type="button">＋ メモ</button>
+      </div>
+    </section>
+
+    <section id="folderSection" aria-labelledby="folderHeading">
+      <div class="section-title">
+        <h2 id="folderHeading">フォルダ</h2>
+      </div>
+      <div id="folderList" class="folder-list"></div>
+    </section>
+
+    <section aria-labelledby="noteHeading">
+      <div class="section-title">
+        <h2 id="noteHeading">メモ</h2>
+        <span id="noteCount" class="count"></span>
+      </div>
+      <div id="noteList" class="note-list"></div>
+    </section>
+  </main>
+
+  <dialog id="noteDialog" class="dialog">
+    <form id="noteForm" method="dialog">
+      <div class="dialog-header">
+        <h2 id="noteDialogTitle">メモを追加</h2>
+        <button id="closeNoteDialogBtn" class="icon-btn" type="button" aria-label="閉じる">×</button>
+      </div>
+
+      <input id="noteId" type="hidden">
+
+      <label>
+        タイトル
+        <input id="noteTitle" type="text" maxlength="120" placeholder="例：お問い合わせ返信" required>
+      </label>
+
+      <label>
+        本文
+        <textarea id="noteBody" rows="9" placeholder="コピーしたい文章を入力" required></textarea>
+      </label>
+
+      <div class="two-col">
+        <label>
+          分類
+          <select id="noteTab" required></select>
+        </label>
+        <label>
+          フォルダ
+          <select id="noteFolder"></select>
+        </label>
+      </div>
+
+      <label class="check-row">
+        <input id="noteFavorite" type="checkbox">
+        よく使うに追加
+      </label>
+
+      <div class="dialog-actions">
+        <button id="cancelNoteBtn" class="secondary-btn" type="button">キャンセル</button>
+        <button id="saveNoteBtn" class="primary-btn" type="submit">保存</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="settingsDialog" class="dialog">
+    <form method="dialog">
+      <div class="dialog-header">
+        <h2>設定・バックアップ</h2>
+        <button id="closeSettingsDialogBtn" class="icon-btn" type="button" aria-label="閉じる">×</button>
+      </div>
+
+      <div class="settings-stack">
+        <button id="addTabBtn" class="secondary-btn full" type="button">＋ 分類タブを追加</button>
+        <button id="backupBtn" class="secondary-btn full" type="button">バックアップを書き出す</button>
+        <button id="restoreBtn" class="secondary-btn full" type="button">バックアップから復元</button>
+        <input id="restoreInput" type="file" accept="application/json,.json" hidden>
+      </div>
+
+      <p class="help">
+        メモ本文はGitHubではなく、このブラウザ内のIndexedDBに保存されます。
+        SafariのWebサイトデータ削除や機種変更に備えて、定期的にバックアップしてください。
+      </p>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
