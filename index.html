@@ -107,14 +107,16 @@
 
       <div class="settings-stack">
         <button id="addTabBtn" class="secondary-btn full" type="button">＋ 分類タブを追加</button>
+        <button id="renameTabBtn" class="secondary-btn full" type="button">選択中のタブ名を変更</button>
         <button id="backupBtn" class="secondary-btn full" type="button">バックアップを書き出す</button>
         <button id="restoreBtn" class="secondary-btn full" type="button">バックアップから復元</button>
         <input id="restoreInput" type="file" accept="application/json,.json" hidden>
       </div>
 
       <p class="help">
-        メモ本文はGitHubには保存されません。端末内のIndexedDBを本保存にし、同じSafari内の別領域にも自動で控えを残します。
-        SafariのWebサイトデータ削除や機種変更に備えて、定期的にバックアップも書き出してください。
+        「すべて」と「よく使う」は固定タブです。それ以外の分類タブは名前を変更できます。
+        メモ本文はGitHubには保存されません。端末内のIndexedDBを本保存にし、同じ利用環境内の別領域にも自動で控えを残します。
+        Webサイトデータ削除や機種変更に備えて、定期的にバックアップも書き出してください。
       </p>
     </form>
   </dialog>
@@ -123,5 +125,6 @@
 
   <script src="./app.js" defer></script>
   <script src="./safety.js" defer></script>
+  <script src="./tab-tools.js" defer></script>
 </body>
 </html>
