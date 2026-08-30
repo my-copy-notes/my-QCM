@@ -1,0 +1,45 @@
+.bulk-target-line {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.bulk-target-line strong {
+  color: var(--text);
+}
+
+.bulk-guide {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.bulk-guide p {
+  margin: 4px 0;
+}
+
+#bulkText {
+  min-height: 260px;
+}
+
+@media (max-width: 640px) {
+  .location-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .location-actions button {
+    min-width: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
