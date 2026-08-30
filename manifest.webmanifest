@@ -1,0 +1,19 @@
+{
+  "name": "My QCM - 文章ストック＆即コピー",
+  "short_name": "My QCM",
+  "description": "よく使う文章を整理して、ワンタップでコピーする自分専用Webアプリ",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f7fb",
+  "theme_color": "#f7f7fb",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
