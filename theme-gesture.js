@@ -37,7 +37,6 @@ function applyQcmTheme(theme, save = false) {
   }
 }
 
-// Apply as early as this script runs so the saved theme returns automatically.
 applyQcmTheme(getSavedTheme());
 
 function toggleQcmTheme() {
@@ -71,7 +70,6 @@ function bindEdgeSwipeBack() {
   let lastX = 0;
   let lastY = 0;
 
-  // Only gestures beginning very close to the left edge count as "back".
   const EDGE_PX = 32;
   const MIN_DISTANCE = 72;
   const MAX_VERTICAL = 70;
@@ -83,7 +81,7 @@ function bindEdgeSwipeBack() {
     }
 
     const touch = event.touches[0];
-    tracking = touch.clientX <= EDGE_PX && Boolean(state?.currentFolderId);
+    tracking = touch.clientX <= EDGE_PX && Boolean(state.currentFolderId);
     if (!tracking) return;
 
     startX = lastX = touch.clientX;
@@ -114,8 +112,14 @@ function bindEdgeSwipeBack() {
   }, { passive: true });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function initThemeAndGesture() {
   updateThemeButton(document.documentElement.dataset.theme || getSavedTheme());
   document.getElementById("themeToggleBtn")?.addEventListener("click", toggleQcmTheme);
   bindEdgeSwipeBack();
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initThemeAndGesture, { once: true });
+} else {
+  initThemeAndGesture();
+}
