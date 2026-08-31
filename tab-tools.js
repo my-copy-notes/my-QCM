@@ -75,6 +75,34 @@ async function moveSelectedTab(direction) {
   showToast(direction < 0 ? "タブを左へ移動しました" : "タブを右へ移動しました");
 }
 
+function loadThemeGestureAssets() {
+  if (!document.querySelector('link[data-qcm-theme-gesture]')) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "./theme-gesture.css";
+    link.dataset.qcmThemeGesture = "true";
+    document.head.appendChild(link);
+  }
+
+  const stack = document.querySelector("#settingsDialog .settings-stack");
+  if (stack && !document.getElementById("themeToggleBtn")) {
+    const button = document.createElement("button");
+    button.id = "themeToggleBtn";
+    button.className = "secondary-btn full";
+    button.type = "button";
+    button.textContent = "ダークモード：OFF";
+    button.setAttribute("aria-pressed", "false");
+    stack.insertBefore(button, stack.firstChild);
+  }
+
+  if (!document.querySelector('script[data-qcm-theme-gesture]')) {
+    const script = document.createElement("script");
+    script.src = "./theme-gesture.js";
+    script.dataset.qcmThemeGesture = "true";
+    document.body.appendChild(script);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const renameButton = $("renameTabBtn");
   const moveLeftButton = $("moveTabLeftBtn");
@@ -83,4 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (renameButton) renameButton.addEventListener("click", renameSelectedTab);
   if (moveLeftButton) moveLeftButton.addEventListener("click", () => moveSelectedTab(-1));
   if (moveRightButton) moveRightButton.addEventListener("click", () => moveSelectedTab(1));
+
+  loadThemeGestureAssets();
 });
