@@ -1,0 +1,82 @@
+/* My QCM: dark theme + small motion polish */
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1c1d21;
+  --surface: #282a30;
+  --surface-2: #33363e;
+  --text: #f1f2f4;
+  --muted: #aeb2bd;
+  --line: #424650;
+  --accent: #6f8cff;
+  --accent-weak: #2b365c;
+  --danger: #ff9a93;
+  --shadow: 0 10px 30px rgba(0, 0, 0, .28);
+}
+
+html[data-theme="dark"] .app-header {
+  background: rgba(28, 29, 33, .92);
+  border-bottom-color: rgba(66, 70, 80, .9);
+}
+
+html[data-theme="dark"] .empty {
+  background: rgba(40, 42, 48, .52);
+}
+
+html[data-theme="dark"] .danger-btn {
+  border-color: #70433f;
+  background: #3b2928;
+  color: #ffaaa4;
+}
+
+html[data-theme="dark"] .toast {
+  background: #eceef3;
+  color: #1f2024;
+}
+
+html[data-theme="dark"] dialog {
+  background: var(--surface);
+  color: var(--text);
+}
+
+html[data-theme="dark"] dialog::backdrop {
+  background: rgba(5, 6, 8, .58);
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  caret-color: var(--text);
+}
+
+html,
+body,
+.app-header,
+.note-card,
+.folder-row,
+.tab-btn,
+.secondary-btn,
+.icon-btn,
+input,
+select,
+textarea,
+dialog {
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  .app-header,
+  .note-card,
+  .folder-row,
+  .tab-btn,
+  .secondary-btn,
+  .icon-btn,
+  input,
+  select,
+  textarea,
+  dialog {
+    transition: none;
+  }
+}
